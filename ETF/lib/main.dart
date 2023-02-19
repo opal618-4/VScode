@@ -78,6 +78,7 @@ class AppBarExample extends StatelessWidget {
                       'Random' +'\n    it',
                       style: TextStyle(fontSize: 5, fontWeight: FontWeight.bold),
                     ),
+                    backgroundColor: Color(0xFF5AB198),
                   ),
                 ),
               ),
