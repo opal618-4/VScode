@@ -1,15 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MaterialApp(
-    home: CircleButtonWithImages()
-    )
-  );
-}
-
 class CircleButtonWithImages extends StatelessWidget {
-  const CircleButtonWithImages({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +12,7 @@ class CircleButtonWithImages extends StatelessWidget {
               child: Container(
                 width: 200,
                 height: 200,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: Colors.green,
                   shape: BoxShape.circle,
                 ),
@@ -30,7 +21,7 @@ class CircleButtonWithImages extends StatelessWidget {
                     onPressed: () {
                       // Add your button functionality here
                     },
-                    child: const Text(
+                    child: Text(
                       'Press Me!',
                       style: TextStyle(
                         color: Colors.white,
@@ -47,9 +38,13 @@ class CircleButtonWithImages extends StatelessWidget {
               child: Container(
                 width: 50,
                 height: 50,
-                decoration: const BoxDecoration(
-                  color: Colors.grey,
+                decoration: BoxDecoration(
+                  color: Colors.white,
                   shape: BoxShape.circle,
+                ),
+                child: Image.network(
+                  'https://picsum.photos/200/200',
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -59,8 +54,8 @@ class CircleButtonWithImages extends StatelessWidget {
               child: Container(
                 width: 50,
                 height: 50,
-                decoration: const BoxDecoration(
-                  color: Colors.green,
+                decoration: BoxDecoration(
+                  color: Colors.white,
                   shape: BoxShape.circle,
                 ),
                 child: Image.network(
@@ -75,8 +70,8 @@ class CircleButtonWithImages extends StatelessWidget {
               child: Container(
                 width: 50,
                 height: 50,
-                decoration: const BoxDecoration(
-                  color: Colors.blueAccent,
+                decoration: BoxDecoration(
+                  color: Colors.white,
                   shape: BoxShape.circle,
                 ),
                 child: Image.network(
