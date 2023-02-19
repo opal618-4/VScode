@@ -183,7 +183,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         return Scaffold(
                           appBar: AppBar(
                             title: Text('The Filter you choose'),
-                            backgroundColor:  Color(0xFFDBDBDB),
+                            titleTextStyle: TextStyle(color: Colors.white,fontSize: 20),
+                            backgroundColor: Color.fromARGB(255, 158, 198, 171),
                           ),
                           body: Center(
                             child: Column(
@@ -193,7 +194,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                     selectedUserList!.isEmpty)
                                   const Expanded(
                                     child: Center(
-                                      child: Text('No user selected'),
+                                      child: Text('No user selected',
+                                      style: TextStyle(color: Colors.white),
+                                    ),
                                     ),
                                   )
                                 else
@@ -202,7 +205,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                       itemBuilder: (context, index) {
                                         return ListTile(
                                           title: Text(
-                                              selectedUserList![index].name!),
+                                              selectedUserList![index].name!,
+                                          style: TextStyle(color: Colors.white),
+                                          ),
                                         );
                                       },
                                       separatorBuilder: (context, index) =>
@@ -213,7 +218,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               ],
                             ),
                           ),
-                        backgroundColor: Color(0xFF5AB198)
+                        backgroundColor: Color.fromARGB(255, 54, 94, 83),
                         );
                       },
                     ),
@@ -237,7 +242,7 @@ class Filtertaste extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Filter list Page"),
+        title: const Text("Taste Filter list Page"),
         actions: <Widget>[],
       ),
       body: SafeArea(
@@ -288,7 +293,7 @@ class Filtertype extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Filter list Page"),
+        title: const Text("Type Filter list Page"),
         actions: <Widget>[],
       ),
       body: SafeArea(
@@ -339,7 +344,7 @@ class Filternation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Filter list Page"),
+        title: const Text("Nationality Filter list Page"),
         actions: <Widget>[],
       ),
       body: SafeArea(
