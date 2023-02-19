@@ -86,3 +86,11 @@ class CircleButtonWithImages extends StatelessWidget {
     );
   }
 }
+/*IconButton(
+            icon: const Icon(Icons.add_alert),
+            tooltip: 'Show Snackbar',
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('This is a snackbar')));
+            },
+          ),*/
