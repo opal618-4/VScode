@@ -8,9 +8,10 @@ class AppBarApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: "My application",
       home: AppBarExample(),
+      theme: ThemeData(primarySwatch: Colors.green),
     );
   }
 }
@@ -85,7 +86,34 @@ class AppBarExample extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[text, bigCir, circleButton],
+          children: <Widget>[text, 
+          FloatingActionButton.large(onPressed: (){ 
+            Navigator.push(context, MaterialPageRoute<void>(
+                          builder: (BuildContext context) {
+                            return Scaffold(
+                              appBar: AppBar(
+                                title: const Text(
+                                    'Let' + "'s" + ' find your meal'),
+                              ),
+                              body: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: <Widget>[text, bigCir,
+                                ],
+                              ),
+                              ),
+                            );
+                          },
+                        ),               
+                      );
+                    },
+                    child: const Text('Random it'),
+                  ),
+            /*CircleAvatar(
+              radius: 60,
+              backgroundColor: Colors.grey,
+            ),*/
+          ],
         ),
       ),
     );
@@ -143,6 +171,28 @@ Widget circleButton = Container(
   child: Row(
     crossAxisAlignment: CrossAxisAlignment.center,
     children: <Widget>[
+      /*FloatingActionButton(onPressed: ()
+      {
+        
+        Navigator.push(context, MaterialPageRoute<void>(
+                          builder: (BuildContext context) {
+                            return Scaffold(
+                              appBar: AppBar(
+                                title: const Text(
+                                    'Let' + "'s" + ' find your meal'),
+                              ),
+                              body: const Center(
+                                child: Text(
+                                  'nation food',
+                                  style: TextStyle(fontSize: 24),
+                                  ),
+                              ),
+                            );
+                          },
+                        ),               
+                      );
+      },
+      ),*/
       CircleAvatar(
         radius: 60,
         backgroundColor: Colors.grey,
@@ -152,11 +202,11 @@ Widget circleButton = Container(
 );
 
 Widget bigCir = Container(
-  padding: EdgeInsets.all(32),
+  padding: const EdgeInsets.all(50),
   child: Row(
-    crossAxisAlignment: CrossAxisAlignment.start,
+    mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      SizedBox(height: 50),
+      const SizedBox(height: 50),
       CircleAvatar(
         radius: 100,
         backgroundColor: Colors.green,
@@ -165,7 +215,7 @@ Widget bigCir = Container(
           fit: BoxFit.cover,
         ),
       ),
-    SizedBox(height: 50),
+    /*SizedBox(height: 50),
     Row(
     mainAxisAlignment: MainAxisAlignment.end,
     children: <Widget>[
@@ -179,7 +229,7 @@ Widget bigCir = Container(
         backgroundColor: Colors.grey,
       ),
     ],
-  ),
+  ),*/
     ],
   ),
 );
