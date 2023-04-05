@@ -1,7 +1,8 @@
-import 'dart:math';
-import 'list_Data.dart';
+//import 'list_Data.dart';
+import 'menu.dart';
+import 'nation.dart';
 import 'package:flutter/material.dart';
-import 'P2.dart';
+import 'dart:math';
 
 void main() => runApp(const AppBarApp());
 
@@ -13,27 +14,39 @@ class AppBarApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "My application",
-      home: AppBarExample(),
+      home: const ETF(),
       theme: ThemeData(
-        colorSchemeSeed: Color(0xFF5AB198),
+        fontFamily: "Glacial",
+        colorSchemeSeed: const Color(0xFF5AB198),
       ),
     );
   }
 }
 
-class AppBarExample extends StatelessWidget {
-  const AppBarExample({super.key});
+class ETF extends StatelessWidget {
+  const ETF({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    //var list = ['a', 'b', 'c'];
+    List Fname = ['a', 'b', 'c'];
+    List Img = [
+      'image/แกงเขียวหวาน.jpeg',
+      'image/ข้าวผัด.jpg',
+      'image/ต้มยำ.jpeg'
+    ];
+    final List<menu> foods = List.generate(
+        Fname.length, (index) => menu('${Fname[index]}', '${Img[index]}'));
+
     return Scaffold(
       // menu from upabove
-      appBar: AppBar(
-        title: const Text('Let' + "'s" + ' find your meal'),
-        actions: <Widget>[
+      //appBar: AppBar(
+      //title: const Text('Let' "'s" ' find your meal'),
+      /*actions: <Widget>[
           //IconButton(onPressed: onPressed, icon: icon)
-        ],
-      ),
+        ],*/
+      //),
       body: Center(
         child: Stack(
           alignment: AlignmentDirectional.topCenter,
@@ -42,12 +55,12 @@ class AppBarExample extends StatelessWidget {
               alignment: AlignmentDirectional.topCenter,
               child: text,
             ),
-            MyHomePage(),
+            const NationPage(),
             Positioned(
-              top: 170,
+              top: 250,
               child: SizedBox(
-                height: 280.0,
-                width: 280.0,
+                height: 150.0,
+                width: 150.0,
                 child: FittedBox(
                   child: FloatingActionButton(
                     onPressed: () {
@@ -55,30 +68,72 @@ class AppBarExample extends StatelessWidget {
                         context,
                         MaterialPageRoute<void>(
                           builder: (BuildContext context) {
+                            final _random = new Random();
+                            int index = _random.nextInt(foods.length);
+                            var va = foods[index];
+                            String pic = Img[index];
+                            String name = Fname[index];
                             return Scaffold(
                               appBar: AppBar(
-                                title: const Text(
-                                    'Let' + "'s" + ' find your meal'),
+                                title: const Text('Let' "'s" ' find your meal'),
                               ),
-                              body: Center(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: <Widget>[
-                                    text2,
-                                    randomDone,
-                                  ],
-                                ),
+                              body: Stack(
+                                children: <Widget>[
+                                  /*Container(
+                                    height: size.height * .45,
+                                    decoration: const BoxDecoration(
+                                      color: Color.fromARGB(255, 193, 195, 166),
+                                    ),
+                                  ),*/
+                                  text2,
+                                  randomDone = Container(
+                                    padding: const EdgeInsets.all(50),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        const SizedBox(
+                                          height: 50,
+                                          width: 50,
+                                        ),
+                                        Container(
+                                            padding: const EdgeInsets.all(20),
+                                            decoration: BoxDecoration(
+                                                color: const Color.fromARGB(
+                                                    255, 118, 173, 150),
+                                                borderRadius:
+                                                    BorderRadius.circular(15)),
+                                            child: Column(
+                                              children: [
+                                                Image.asset(pic),
+                                                Text('$name',
+                                                  textAlign: TextAlign.center,
+                                                  style: TextStyle(
+                                                      fontSize: 18,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Color.fromARGB(
+                                                          255, 255, 255, 255)),
+                                                ),
+                                              ],
+                                            )
+                                          ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
                             );
                           },
                         ),
                       );
                     },
-                    child: Text(
-                      'Random' +'\n    it',
-                      style: TextStyle(fontSize: 5, fontWeight: FontWeight.bold),
+                    backgroundColor: const Color(0xFF5AB198),
+                    child: const Text(
+                      'Random' '\n    it',
+                      style:
+                          TextStyle(fontSize: 5, fontWeight: FontWeight.bold),
                     ),
-                    backgroundColor: Color(0xFF5AB198),
                   ),
                 ),
               ),
@@ -87,7 +142,7 @@ class AppBarExample extends StatelessWidget {
               radius: 60,
               backgroundColor: Colors.grey,
             ),*/
-            Positioned(
+            /*Positioned(
               left: 0,
               top: 80,
               child: oneCircles,
@@ -96,12 +151,7 @@ class AppBarExample extends StatelessWidget {
               right: -50,
               top: 250,
               child: twoCircles,
-            ),
-            Positioned(
-              left: -50,
-              top: 300,
-              child: threeCircles,
-            ),
+            ),*/
           ],
         ),
       ),
@@ -110,16 +160,124 @@ class AppBarExample extends StatelessWidget {
 }
 
 //---------------------------------------------------
-Widget oneCircles = Container(
+class FilterCir extends StatefulWidget {
+  const FilterCir({super.key});
+
+  @override
+  State<FilterCir> createState() => FilterCirState();
+}
+
+class FilterCirState extends State<FilterCir> {
+  @override
+  Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    return Center(
+      child: SizedBox(
+        height: 100.0,
+        width: 100.0,
+        child: FittedBox(
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) {
+                    return Scaffold(
+                      appBar: AppBar(
+                        title: const Text('Let' "'s" ' find your meal'),
+                      ),
+                      body: Stack(
+                        children: <Widget>[
+                          Container(
+                            height: size.height * .45,
+                            decoration: const BoxDecoration(
+                              color: Color.fromARGB(255, 193, 195, 166),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              );
+            },
+            style: ButtonStyle(
+              backgroundColor:
+                  MaterialStateProperty.all(const Color(0xFF5AB198)),
+            ),
+            child: const Text(
+              'Filter your meal',
+              style: TextStyle(fontSize: 5, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+//-----------------------------------------------------
+class ClickCircle extends StatefulWidget {
+  const ClickCircle({super.key});
+
+  @override
+  State<FilterCir> createState() => FilterCirState();
+}
+
+class ClickCircleState extends State<FilterCir> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          /*InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Filternation(),
+                  ));
+            },
+          ),*/
+          const SizedBox(height: 20, width: 40),
+          CircleAvatar(
+            radius: 60,
+            backgroundColor: const Color(0xFFC1E2D9),
+            child: Image.asset(
+              'image/map.png',
+              fit: BoxFit.cover,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+Widget build(BuildContext context) {
+  return Padding(
+    padding: EdgeInsets.all(0),
+    child: AspectRatio(
+      aspectRatio: 0.85,
+      child: PageView.builder(
+        itemBuilder: (context, index) => Container(
+          color: Color(0xFFC1E2D9),
+        ),
+      ),
+    ),
+  );
+}
+/*Widget oneCircles = Container(
   padding: const EdgeInsets.all(50),
   child: Row(
     mainAxisAlignment: MainAxisAlignment.start,
     children: [
-      SizedBox(height: 20),
-      SizedBox(width: 40),
+      const SizedBox(height: 20),
+      const SizedBox(width: 40),
       CircleAvatar(
         radius: 60,
-        backgroundColor: Color(0xFFC1E2D9),
+        backgroundColor: const Color(0xFFC1E2D9),
         child: Image.asset(
           'image/map.png',
           fit: BoxFit.cover,
@@ -133,14 +291,17 @@ Widget twoCircles = Container(
   child: Row(
     mainAxisAlignment: MainAxisAlignment.start,
     children: [
-      SizedBox(height: 20),
-      SizedBox(width: 40),
+      const SizedBox(height: 20),
+      const SizedBox(width: 40),
       CircleAvatar(
         radius: 60,
-        backgroundColor: Color(0xFFC1E2D9),
-        child: Image.asset(
-          'image/mustard.png',
-          fit: BoxFit.cover,
+        backgroundColor: const Color(0xFFC1E2D9),
+        child: GestureDetector(
+          onDoubleTap: () => const Filtertaste(),
+          child: Image.asset(
+            'image/mustard.png',
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     ],
@@ -151,64 +312,31 @@ Widget threeCircles = Container(
   child: Row(
     mainAxisAlignment: MainAxisAlignment.start,
     children: [
-      SizedBox(height: 20),
-      SizedBox(width: 40),
+      const SizedBox(height: 20),
+      const SizedBox(width: 40),
       CircleAvatar(
         radius: 60,
-        backgroundColor: Color(0xFFC1E2D9),
-        child: Image.asset(
-          'image/french-fries.png',
-          fit: BoxFit.cover,
+        backgroundColor: const Color(0xFFC1E2D9),
+        child: GestureDetector(
+          onDoubleTap: () => const Filtertype(),
+          child: Image.asset(
+            'image/french-fries.png',
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     ],
   ),
-);
-Widget titleSection = Container(
-  padding: const EdgeInsets.all(32),
-  child: Row(
-    children: [
-      Expanded(
-        /*1*/
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            /*2*/
-            Container(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: const Text(
-                'Oeschinen Lake Campground',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Text(
-              'Kandersteg, Switzerland',
-              style: TextStyle(
-                color: Colors.grey[500],
-              ),
-            ),
-          ],
-        ),
-      ),
-      /*3*/
-      Icon(
-        Icons.star,
-        color: Colors.red[500],
-      ),
-      const Text('41'),
-    ],
-  ),
-);
+);*/
 
 Widget text = const Padding(
   padding: EdgeInsets.all(32),
   child: Text(
     ' Choose what filter you want to have',
     softWrap: true,
-    style: TextStyle(fontSize: 18,
-    fontWeight: FontWeight.bold,
+    style: TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
     ),
   ),
 );
@@ -218,13 +346,14 @@ Widget text2 = const Padding(
   child: Text(
     'Here is your meal!',
     softWrap: true,
-    style: TextStyle(fontSize: 25,
-    fontWeight: FontWeight.bold,
+    style: TextStyle(
+      fontSize: 25,
+      fontWeight: FontWeight.bold,
     ),
   ),
 );
 Widget randomtxt = const Padding(
-  padding: EdgeInsets.zero,
+  padding: EdgeInsets.all(50),
   child: Text(
     ' RANDOM IT',
     softWrap: true,
@@ -232,7 +361,7 @@ Widget randomtxt = const Padding(
 );
 
 Widget circleButton = Container(
-  padding: EdgeInsets.all(32),
+  padding: const EdgeInsets.all(32),
   child: Row(
     crossAxisAlignment: CrossAxisAlignment.center,
     children: <Widget>[
@@ -256,7 +385,7 @@ Widget circleButton = Container(
                       );
       },
       ),*/
-      CircleAvatar(
+      const CircleAvatar(
         radius: 60,
         backgroundColor: Colors.grey,
       ),
@@ -266,19 +395,36 @@ Widget circleButton = Container(
 
 Widget randomDone = Container(
   padding: const EdgeInsets.all(50),
-  child: Row(
-    mainAxisAlignment: MainAxisAlignment.center,
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.start,
     children: [
       const SizedBox(height: 50),
-      CircleAvatar(
-        radius: 100,
-        backgroundColor: Color(0xFF5ab198),
-        child: Image.network(
-          'https://picsum.photos/200/201',
-          fit: BoxFit.cover,
-        ),
-      ),
+      Container(
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 118, 173, 150),
+              borderRadius: BorderRadius.circular(15)),
+          child: Column(
+            children: [
+              //Image.asset('image/hamburger.png'),
+              const Text(
+                "Hamburger",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 255, 255, 255)),
+              ),
+            ],
+          )),
     ],
+  ),
+);
+Widget txtrandomDone = Container(
+  padding: const EdgeInsets.all(50),
+  child: Align(
+    alignment: AlignmentDirectional.center,
+    child: randomDone,
   ),
 );
 
@@ -287,16 +433,16 @@ Widget otherCircles = Container(
   child: Row(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      SizedBox(height: 30),
+      const SizedBox(height: 30),
       Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
-          CircleAvatar(
+          const CircleAvatar(
             radius: 60,
             backgroundColor: Colors.grey,
           ),
-          SizedBox(width: 50),
-          CircleAvatar(
+          const SizedBox(width: 50),
+          const CircleAvatar(
             radius: 60,
             backgroundColor: Colors.grey,
           ),
@@ -305,3 +451,5 @@ Widget otherCircles = Container(
     ],
   ),
 );
+
+class PageSecond extends Container {}

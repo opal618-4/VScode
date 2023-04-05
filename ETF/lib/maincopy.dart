@@ -1,4 +1,4 @@
-import 'list_Data.dart';
+/*import 'list_Data.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter/src/material/bottom_navigation_bar.dart';
 import 'P2.dart';
@@ -375,3 +375,4 @@ List<User> typeList = [
   User(name: "Food", avatar: "user.png"),
   User(name: "Vegetarian", avatar: "user.png"),
 ];*/
+*/

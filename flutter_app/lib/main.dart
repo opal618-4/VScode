@@ -1,93 +1,74 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MaterialApp(
-    home: CircleButtonWithImages()
-    )
-  );
+  runApp(Sushi());
 }
 
-class CircleButtonWithImages extends StatelessWidget {
-  const CircleButtonWithImages({super.key});
+class Sushi extends StatelessWidget {
+  Sushi({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: const FirstPage(),
+      theme: ThemeData(
+        fontFamily: "Glacial",
+        colorSchemeSeed: const Color(0xFF5AB198),
+      ),
+    );
+  }
+}
+
+class FirstPage extends StatelessWidget {
+  const FirstPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Stack(
-          children: [
-            Positioned(
-              bottom: 0,
-              child: Container(
-                width: 200,
-                height: 200,
-                decoration: const BoxDecoration(
-                  color: Colors.green,
-                  shape: BoxShape.circle,
-                ),
-                child: Center(
-                  child: TextButton(
-                    onPressed: () {
-                      // Add your button functionality here
-                    },
-                    child: const Text(
-                      'Press Me!',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              top: 30,
-              left: 30,
-              child: Container(
-                width: 50,
-                height: 50,
-                decoration: const BoxDecoration(
-                  color: Colors.grey,
-                  shape: BoxShape.circle,
-                ),
-              ),
-            ),
-            Positioned(
-              top: 30,
-              right: 30,
-              child: Container(
-                width: 50,
-                height: 50,
-                decoration: const BoxDecoration(
-                  color: Colors.green,
-                  shape: BoxShape.circle,
-                ),
-                child: Image.network(
-                  'https://picsum.photos/200/201',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: 30,
-              left: 30,
-              child: Container(
-                width: 50,
-                height: 50,
-                decoration: const BoxDecoration(
-                  color: Colors.blueAccent,
-                  shape: BoxShape.circle,
-                ),
-                child: Image.network(
-                  'https://picsum.photos/200/202',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ],
+        appBar: AppBar(
+          title: const Text('App Title'),
+          titleTextStyle: const TextStyle(fontSize: 16),
+          
         ),
-      ),
+        body: Center(
+          child: SizedBox(
+          height: 200.0,
+          width: 200.0,
+          child: FittedBox(
+            //color: Color.fromARGB(255, 211, 208, 177),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  foregroundColor: Color.fromARGB(255, 244, 246, 245),
+                  backgroundColor: const Color(0xFF5AB198)),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return SecondPage();
+                    },
+                  ),
+                );
+              },
+              child: Text('Random Item'),
+            ),
+          ),
+        ),
+      )
+    );
+  }
+}
+
+class SecondPage extends StatelessWidget {
+  const SecondPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+      appBar: AppBar(),
     );
   }
 }

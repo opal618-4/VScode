@@ -1,16 +1,16 @@
-import 'package:filter_list/filter_list.dart';
-import 'package:flutter/material.dart';
+// import 'package:filter_list/filter_list.dart';
+// import 'package:flutter/material.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, this.title}) : super(key: key);
-  final String? title;
+// class MyHomePage extends StatefulWidget {
+//   const MyHomePage({Key? key, this.title}) : super(key: key);
+//   final String? title;
 
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
+//   @override
+//   _MyHomePageState createState() => _MyHomePageState();
+// }
 
-class _MyHomePageState extends State<MyHomePage> {
-  List<User>? selectedUserList = [];
+// class _MyHomePageState extends State<MyHomePage> {
+//   List<User>? selectedUserList = [];
 
   /* Future<void> openFilterDelegate() async {
     await FilterListDelegate.show<User>(
@@ -71,342 +71,342 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }*/
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Stack(
-          alignment: AlignmentDirectional.topCenter,
-          children: <Widget>[
-            Positioned(
-              left: 100,
-              top: 85,
-              child: TextButton(
-                onPressed: () async {
-                  final list = await Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Filternation(
-                        allTextList: nationList,
-                        selectedUserList: selectedUserList,
-                      ),
-                    ),
-                  );
-                  if (list != null) {
-                    setState(() {
-                      selectedUserList = List.from(list);
-                    });
-                  }
-                },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                      Color.fromARGB(44, 255, 255, 255)),
-                ),
-                child: const Text(
-                  "Filter Nation",
-                  style: TextStyle(
-                      color: Color(0xFF5AB198), fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-            Positioned(
-              right: 9,
-              top: 430,
-              child: TextButton(
-                onPressed: () async {
-                  final list = await Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Filtertaste(
-                        allTextList: tasteList,
-                        selectedUserList: selectedUserList,
-                      ),
-                    ),
-                  );
-                  if (list != null) {
-                    setState(() {
-                      selectedUserList = List.from(list);
-                    });
-                  }
-                },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                      Color.fromARGB(44, 255, 255, 255)),
-                ),
-                child: const Text(
-                  "Filter Taste",
-                  style: TextStyle(
-                      color: Color(0xFF5AB198), fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-            Positioned(
-              left: 50,
-              top: 470,
-              child: TextButton(
-                onPressed: () async {
-                  final list = await Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Filtertype(
-                        allTextList: typeList,
-                        selectedUserList: selectedUserList,
-                      ),
-                    ),
-                  );
-                  if (list != null) {
-                    setState(() {
-                      selectedUserList = List.from(list);
-                    });
-                  }
-                },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                      Color.fromARGB(44, 255, 255, 255)),
-                ),
-                child: const Text(
-                  "Filter Type",
-                  style: TextStyle(
-                      color: Color(0xFF5AB198), fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: 0,
-              child: ElevatedButton(
-                child: const Text('Selected Filter'),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (BuildContext context) {
-                        return Scaffold(
-                          appBar: AppBar(
-                            title: Text('The Filter you choose'),
-                            titleTextStyle: TextStyle(color: Colors.white,fontSize: 20),
-                            backgroundColor: Color.fromARGB(255, 158, 198, 171),
-                          ),
-                          body: Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: <Widget>[
-                                if (selectedUserList == null ||
-                                    selectedUserList!.isEmpty)
-                                  const Expanded(
-                                    child: Center(
-                                      child: Text('No user selected',
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    ),
-                                  )
-                                else
-                                  Expanded(
-                                    child: ListView.separated(
-                                      itemBuilder: (context, index) {
-                                        return ListTile(
-                                          title: Text(
-                                              selectedUserList![index].name!,
-                                          style: TextStyle(color: Colors.white),
-                                          ),
-                                        );
-                                      },
-                                      separatorBuilder: (context, index) =>
-                                          const Divider(),
-                                      itemCount: selectedUserList!.length,
-                                    ),
-                                  )
-                              ],
-                            ),
-                          ),
-                        backgroundColor: Color.fromARGB(255, 54, 94, 83),
-                        );
-                      },
-                    ),
-                  );
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Center(
+//         child: Stack(
+//           alignment: AlignmentDirectional.topCenter,
+//           children: <Widget>[
+//             Positioned(
+//               left: 100,
+//               top: 85,
+//               child: TextButton(
+//                 onPressed: () async {
+//                   final list = await Navigator.push(
+//                     context,
+//                     MaterialPageRoute(
+//                       builder: (context) => Filternation(
+//                         allTextList: nationList,
+//                         selectedUserList: selectedUserList,
+//                       ),
+//                     ),
+//                   );
+//                   if (list != null) {
+//                     setState(() {
+//                       selectedUserList = List.from(list);
+//                     });
+//                   }
+//                 },
+//                 style: ButtonStyle(
+//                   backgroundColor: MaterialStateProperty.all(
+//                       const Color.fromARGB(44, 255, 255, 255)),
+//                 ),
+//                 child: const Text(
+//                   "Filter Nation",
+//                   style: TextStyle(
+//                       color: Color(0xFF5AB198), fontWeight: FontWeight.bold),
+//                 ),
+//               ),
+//             ),
+//             Positioned(
+//               right: 9,
+//               top: 430,
+//               child: TextButton(
+//                 onPressed: () async {
+//                   final list = await Navigator.push(
+//                     context,
+//                     MaterialPageRoute(
+//                       builder: (context) => Filtertaste(
+//                         allTextList: tasteList,
+//                         selectedUserList: selectedUserList,
+//                       ),
+//                     ),
+//                   );
+//                   if (list != null) {
+//                     setState(() {
+//                       selectedUserList = List.from(list);
+//                     });
+//                   }
+//                 },
+//                 style: ButtonStyle(
+//                   backgroundColor: MaterialStateProperty.all(
+//                       const Color.fromARGB(44, 255, 255, 255)),
+//                 ),
+//                 child: const Text(
+//                   "Filter Taste",
+//                   style: TextStyle(
+//                       color: Color(0xFF5AB198), fontWeight: FontWeight.bold),
+//                 ),
+//               ),
+//             ),
+//             Positioned(
+//               left: 50,
+//               top: 470,
+//               child: ElevatedButton( 
+//                 onPressed: () async {
+//                   final list = await Navigator.push(
+//                     context,
+//                     MaterialPageRoute(
+//                       builder: (context) => Filtertype(
+//                         allTextList: typeList,
+//                         selectedUserList: selectedUserList,
+//                       ),
+//                     ),
+//                   );
+//                   if (list != null) {
+//                     setState(() {
+//                       selectedUserList = List.from(list);
+//                     });
+//                   }
+//                 },
+//                 style: ButtonStyle(
+//                   backgroundColor: MaterialStateProperty.all(
+//                       Color.fromARGB(255, 255, 255, 255)),
+//                 ),
+//                 child: const Text(
+//                   "Filter",
+//                   style: TextStyle(
+//                       color: Color(0xFF5AB198), fontWeight: FontWeight.bold),
+//                 ),
+//               ),
+//             ),
+//             Positioned(
+//               bottom: 50,
+//               child: ElevatedButton(
+//                 child: const Text('Selected Filter'),
+//                 onPressed: () {
+//                   Navigator.push(
+//                     context,
+//                     MaterialPageRoute<void>(
+//                       builder: (BuildContext context) {
+//                         return Scaffold(
+//                           appBar: AppBar(
+//                             title: const Text('The Filter you choose'),
+//                             titleTextStyle: const TextStyle(color: Colors.white,fontSize: 20),
+//                             backgroundColor: const Color.fromARGB(255, 158, 198, 171),
+//                           ),
+//                           body: Center(
+//                             child: Column(
+//                               mainAxisAlignment: MainAxisAlignment.start,
+//                               children: <Widget>[
+//                                 if (selectedUserList == null ||
+//                                     selectedUserList!.isEmpty)
+//                                   const Expanded(
+//                                     child: Center(
+//                                       child: Text('No user selected',
+//                                       style: TextStyle(color: Colors.white),
+//                                     ),
+//                                     ),
+//                                   )
+//                                 else
+//                                   Expanded(
+//                                     child: ListView.separated(
+//                                       itemBuilder: (context, index) {
+//                                         return ListTile(
+//                                           title: Text(
+//                                               selectedUserList![index].name!,
+//                                           style: const TextStyle(color: Colors.white),
+//                                           ),
+//                                         );
+//                                       },
+//                                       separatorBuilder: (context, index) =>
+//                                           const Divider(),
+//                                       itemCount: selectedUserList!.length,
+//                                     ),
+//                                   )
+//                               ],
+//                             ),
+//                           ),
+//                         backgroundColor: const Color.fromARGB(255, 54, 94, 83),
+//                         );
+//                       },
+//                     ),
+//                   );
+//                 },
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
 
-class Filtertaste extends StatelessWidget {
-  const Filtertaste({Key? key, this.allTextList, this.selectedUserList})
-      : super(key: key);
-  final List<User>? allTextList;
-  final List<User>? selectedUserList;
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Taste Filter list Page"),
-        actions: <Widget>[],
-      ),
-      body: SafeArea(
-        child: FilterListWidget<User>(
-          themeData: FilterListThemeData(context),
-          hideSelectedTextCount: true,
-          listData: tasteList,
-          selectedListData: selectedUserList,
-          onApplyButtonClick: (list) {
-            Navigator.pop(context, list);
-          },
-          choiceChipLabel: (item) {
-            /// Used to print text on chip
-            return item!.name;
-          },
-          // choiceChipBuilder: (context, item, isSelected) {
-          //   return Container(
-          //     padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-          //     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          //     decoration: BoxDecoration(
-          //         border: Border.all(
-          //       color: isSelected! ? Colors.blue[300]! : Colors.grey[300]!,
-          //     )),
-          //     child: Text(item.name),
-          //   );
-          // },
-          validateSelectedItem: (list, val) {
-            ///  identify if item is selected or not
-            return list!.contains(val);
-          },
-          onItemSearch: (user, query) {
-            /// When search query change in search bar then this method will be called
-            ///
-            /// Check if items contains query
-            return user.name!.toLowerCase().contains(query.toLowerCase());
-          },
-        ),
-      ),
-    );
-  }
-}
-class Filtertype extends StatelessWidget {
-  const Filtertype({Key? key, this.allTextList, this.selectedUserList})
-      : super(key: key);
-  final List<User>? allTextList;
-  final List<User>? selectedUserList;
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Type Filter list Page"),
-        actions: <Widget>[],
-      ),
-      body: SafeArea(
-        child: FilterListWidget<User>(
-          themeData: FilterListThemeData(context),
-          hideSelectedTextCount: true,
-          listData: typeList,
-          selectedListData: selectedUserList,
-          onApplyButtonClick: (list) {
-            Navigator.pop(context, list);
-          },
-          choiceChipLabel: (item) {
-            /// Used to print text on chip
-            return item!.name;
-          },
-          // choiceChipBuilder: (context, item, isSelected) {
-          //   return Container(
-          //     padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-          //     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          //     decoration: BoxDecoration(
-          //         border: Border.all(
-          //       color: isSelected! ? Colors.blue[300]! : Colors.grey[300]!,
-          //     )),
-          //     child: Text(item.name),
-          //   );
-          // },
-          validateSelectedItem: (list, val) {
-            ///  identify if item is selected or not
-            return list!.contains(val);
-          },
-          onItemSearch: (user, query) {
-            /// When search query change in search bar then this method will be called
-            ///
-            /// Check if items contains query
-            return user.name!.toLowerCase().contains(query.toLowerCase());
-          },
-        ),
-      ),
-    );
-  }
-}
-class Filternation extends StatelessWidget {
-  const Filternation({Key? key, this.allTextList, this.selectedUserList})
-      : super(key: key);
-  final List<User>? allTextList;
-  final List<User>? selectedUserList;
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Nationality Filter list Page"),
-        actions: <Widget>[],
-      ),
-      body: SafeArea(
-        child: FilterListWidget<User>(
-          themeData: FilterListThemeData(context),
-          hideSelectedTextCount: true,
-          listData: nationList,
-          selectedListData: selectedUserList,
-          onApplyButtonClick: (list) {
-            Navigator.pop(context, list);
-          },
-          choiceChipLabel: (item) {
-            /// Used to print text on chip
-            return item!.name;
-          },
-          // choiceChipBuilder: (context, item, isSelected) {
-          //   return Container(
-          //     padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-          //     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          //     decoration: BoxDecoration(
-          //         border: Border.all(
-          //       color: isSelected! ? Colors.blue[300]! : Colors.grey[300]!,
-          //     )),
-          //     child: Text(item.name),
-          //   );
-          // },
-          validateSelectedItem: (list, val) {
-            ///  identify if item is selected or not
-            return list!.contains(val);
-          },
-          onItemSearch: (user, query) {
-            /// When search query change in search bar then this method will be called
-            ///
-            /// Check if items contains query
-            return user.name!.toLowerCase().contains(query.toLowerCase());
-          },
-        ),
-      ),
-    );
-  }
-}
-class User {
-  final String? name;
-  final String? avatar;
-  User({this.name, this.avatar});
-}
+// class Filtertaste extends StatelessWidget {
+//   const Filtertaste({Key? key, this.allTextList, this.selectedUserList})
+//       : super(key: key);
+//   final List<User>? allTextList;
+//   final List<User>? selectedUserList;
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text("Taste Filter list Page"),
+//         actions: <Widget>[],
+//       ),
+//       body: SafeArea(
+//         child: FilterListWidget<User>(
+//           themeData: FilterListThemeData(context),
+//           hideSelectedTextCount: true,
+//           listData: tasteList,
+//           selectedListData: selectedUserList,
+//           onApplyButtonClick: (list) {
+//             Navigator.pop(context, list);
+//           },
+//           choiceChipLabel: (item) {
+//             /// Used to print text on chip
+//             return item!.name;
+//           },
+//           // choiceChipBuilder: (context, item, isSelected) {
+//           //   return Container(
+//           //     padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+//           //     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+//           //     decoration: BoxDecoration(
+//           //         border: Border.all(
+//           //       color: isSelected! ? Colors.blue[300]! : Colors.grey[300]!,
+//           //     )),
+//           //     child: Text(item.name),
+//           //   );
+//           // },
+//           validateSelectedItem: (list, val) {
+//             ///  identify if item is selected or not
+//             return list!.contains(val);
+//           },
+//           onItemSearch: (user, query) {
+//             /// When search query change in search bar then this method will be called
+//             ///
+//             /// Check if items contains query
+//             return user.name!.toLowerCase().contains(query.toLowerCase());
+//           },
+//         ),
+//       ),
+//     );
+//   }
+// }
+// class Filtertype extends StatelessWidget {
+//   const Filtertype({Key? key, this.allTextList, this.selectedUserList})
+//       : super(key: key);
+//   final List<User>? allTextList;
+//   final List<User>? selectedUserList;
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text("Type Filter list Page"),
+//         actions: <Widget>[],
+//       ),
+//       body: SafeArea(
+//         child: FilterListWidget<User>(
+//           themeData: FilterListThemeData(context),
+//           hideSelectedTextCount: true,
+//           listData: typeList,
+//           selectedListData: selectedUserList,
+//           onApplyButtonClick: (list) {
+//             Navigator.pop(context, list);
+//           },
+//           choiceChipLabel: (item) {
+//             /// Used to print text on chip
+//             return item!.name;
+//           },
+//           // choiceChipBuilder: (context, item, isSelected) {
+//           //   return Container(
+//           //     padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+//           //     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+//           //     decoration: BoxDecoration(
+//           //         border: Border.all(
+//           //       color: isSelected! ? Colors.blue[300]! : Colors.grey[300]!,
+//           //     )),
+//           //     child: Text(item.name),
+//           //   );
+//           // },
+//           validateSelectedItem: (list, val) {
+//             ///  identify if item is selected or not
+//             return list!.contains(val);
+//           },
+//           onItemSearch: (user, query) {
+//             /// When search query change in search bar then this method will be called
+//             ///
+//             /// Check if items contains query
+//             return user.name!.toLowerCase().contains(query.toLowerCase());
+//           },
+//         ),
+//       ),
+//     );
+//   }
+// }
+// // class Filternation extends StatelessWidget {
+// //   const Filternation({Key? key, this.allTextList, this.selectedUserList})
+// //       : super(key: key);
+// //   final List<User>? allTextList;
+// //   final List<User>? selectedUserList;
+// //   @override
+// //   Widget build(BuildContext context) {
+// //     return Scaffold(
+// //       appBar: AppBar(
+// //         title: const Text("Nationality Filter list Page"),
+// //         actions: <Widget>[],
+// //       ),
+// //       body: SafeArea(
+// //         child: FilterListWidget<User>(
+// //           themeData: FilterListThemeData(context),
+// //           hideSelectedTextCount: true,
+// //           listData: nationList,
+// //           selectedListData: selectedUserList,
+// //           onApplyButtonClick: (list) {
+// //             Navigator.pop(context, list);
+// //           },
+// //           choiceChipLabel: (item) {
+// //             /// Used to print text on chip
+// //             return item!.name;
+// //           },
+// //           // choiceChipBuilder: (context, item, isSelected) {
+// //           //   return Container(
+// //           //     padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+// //           //     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+// //           //     decoration: BoxDecoration(
+// //           //         border: Border.all(
+// //           //       color: isSelected! ? Colors.blue[300]! : Colors.grey[300]!,
+// //           //     )),
+// //           //     child: Text(item.name),
+// //           //   );
+// //           // },
+// //           validateSelectedItem: (list, val) {
+// //             ///  identify if item is selected or not
+// //             return list!.contains(val);
+// //           },
+// //           onItemSearch: (user, query) {
+// //             /// When search query change in search bar then this method will be called
+// //             ///
+// //             /// Check if items contains query
+// //             return user.name!.toLowerCase().contains(query.toLowerCase());
+// //           },
+// //         ),
+// //       ),
+// //     );
+// //   }
+// // }
+// class User {
+//   final String? name;
+//   final String? avatar;
+//   User({this.name, this.avatar});
+// }
 
-/// Creating a global list for example purpose.
-/// Generally it should be within data class or where ever you want
-List<User> tasteList = [
-  User(name: "Spicy", avatar: "user.png"),
-  User(name: "Umami", avatar: "user.png"),
-  User(name: "Sweet", avatar: "user.png"),
-  User(name: "Sour", avatar: "user.png"),
-];
-List<User> nationList = [
-  User(name: "Thai", avatar: "user.png"),
-  User(name: "Japanese", avatar: "user.png"),
-  User(name: "Korean", avatar: "user.png"),
-];
-List<User> typeList = [
-  User(name: "Dessert", avatar: "user.png"),
-  User(name: "Food", avatar: "user.png"),
-  User(name: "Vegetarian", avatar: "user.png"),
-];
+// /// Creating a global list for example purpose.
+// /// Generally it should be within data class or where ever you want
+// List<User> tasteList = [
+//   User(name: "Spicy", avatar: "user.png"),
+//   User(name: "Umami", avatar: "user.png"),
+//   User(name: "Sweet", avatar: "user.png"),
+//   User(name: "Sour", avatar: "user.png"),
+// ];
+// List<User> nationList = [
+//   User(name: "Thai", avatar: "image/hamburger.png"),
+//   User(name: "Japanese", avatar: "image/french-fries.png"),
+//   User(name: "Chinese", avatar: "image/mustard.png"),
+// ];
+// List<User> typeList = [
+//   User(name: "Dessert", avatar: "user.png"),
+//   User(name: "Food", avatar: "user.png"),
+//   User(name: "Vegetarian", avatar: "user.png"),
+// ];
