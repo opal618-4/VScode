@@ -73,8 +73,37 @@ flutter:
    - image/hamburger.png
    - image/greenlike.png
    - image/แกงเขียวหวาน.jpeg
-   - image/ข้าวผัด.jpg
+   - image/ข้าวผัดกุ้ง.png
    - image/ต้มยำ.jpeg
+   - image/eggpaloa.png
+   - image/japan.png
+   - image/padseyew.png
+   - image/salmon.png
+   - image/ข้าวมันไก่.png
+   - image/hotpot.png
+   - image/ส้มตำ.png
+   - image/หมูกระเทียม.png
+   - image/curry.png
+   - image/ผัดกระเพรา.png
+   - image/ข้าวหน้าปลาไหล.png
+   - image/ราเมน.png
+   - image/pizza.jpg
+   - image/spa.jpg
+   - image/แกงเขียวหวาน.jpg
+   - image/steak.jpg
+   - image/ติ่มซำ.jpg
+   - image/เป็ด.jpg
+   - image/หมี่ซั่ว.jpg
+   - image/mala.jpg
+   - image/ปลานึ่งซีอิ๊ว.jpg
+   - image/ผัดเต้าหู้เสฉวน.jpg
+   - image/พแนงหมู.jpg
+   - image/กระเพาะปลา.jpg
+   - image/okonomi.png
+   - image/โคร็อกเกะ.png
+   - image/ซาชิมิ.png
+   - image/tomyum.png
+   - image/11.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
