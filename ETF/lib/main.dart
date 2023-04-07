@@ -1,8 +1,8 @@
 import 'list_Data.dart';
 import 'menu.dart';
-import 'nation.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'bottomBar.dart';
 
 void main() => runApp(const AppBarApp());
 
@@ -15,6 +15,7 @@ class AppBarApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "My application",
       home: const ETF(),
+      
       theme: ThemeData(
         fontFamily: "Glacial",
         colorSchemeSeed: const Color(0xFF5AB198),
@@ -23,9 +24,14 @@ class AppBarApp extends StatelessWidget {
   }
 }
 
-class ETF extends StatelessWidget {
+class ETF extends StatefulWidget {
   const ETF({super.key});
 
+  @override
+  State<ETF> createState() => _ETFState();
+}
+
+class _ETFState extends State<ETF> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -156,25 +162,12 @@ class ETF extends StatelessWidget {
     final List<menu> chfoods = List.generate(
         chName.length, (index) => menu('${chName[index]}', '${chImg[index]}'));
 
+    var _currentIndex=0;
     return Scaffold(
-      // menu from upabove
-      // appBar: AppBar(
-      // title: const Text('Let' "'s" ' find your meal'),
-      // actions: <Widget>[
-      //     //IconButton(onPressed: onPressed, icon: icon)
-      //   ],
-      // ),
       body: Center(
         child: Stack(
           alignment: AlignmentDirectional.topCenter,
           children: <Widget>[
-            Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('image/11.png'), fit: BoxFit.cover),
-              ),
-            ),
-            //const MyHomePage(),
             Positioned(
               top: 120,
               child: SizedBox(
@@ -196,6 +189,16 @@ class ETF extends StatelessWidget {
                             return Scaffold(
                               appBar: AppBar(
                                 title: const Text('นี่คืออาหารของคุณ!'),
+                                backgroundColor: const Color(0xFF5AB198),
+                              ),
+                              floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+                              floatingActionButton: 
+                              FloatingActionButton(
+                                child: const Icon(Icons.home),
+                                backgroundColor: const Color(0xFF5AB198),
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => ETF()));
+                                },
                               ),
                               body: Stack(
                                 children: <Widget>[
@@ -290,6 +293,16 @@ class ETF extends StatelessWidget {
                             return Scaffold(
                               appBar: AppBar(
                                 title: const Text('นี่คืออาหารของคุณ!'),
+                                backgroundColor: const Color(0xFF5AB198),
+                              ),
+                              floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+                              floatingActionButton: 
+                              FloatingActionButton(
+                                child: const Icon(Icons.home),
+                                backgroundColor: const Color(0xFF5AB198),
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => ETF()));
+                                },
                               ),
                               body: Stack(
                                 children: <Widget>[
@@ -387,6 +400,16 @@ class ETF extends StatelessWidget {
                             return Scaffold(
                               appBar: AppBar(
                                 title: const Text('นี่คืออาหารของคุณ!'),
+                                backgroundColor: const Color(0xFF5AB198),
+                              ),
+                              floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+                              floatingActionButton: 
+                              FloatingActionButton(
+                                child: const Icon(Icons.home),
+                                backgroundColor: const Color(0xFF5AB198),
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => ETF()));
+                                },
                               ),
                               body: Stack(
                                 children: <Widget>[
@@ -485,6 +508,16 @@ class ETF extends StatelessWidget {
                             return Scaffold(
                               appBar: AppBar(
                                 title: const Text('นี่คืออาหารของคุณ!'),
+                                backgroundColor: const Color(0xFF5AB198),
+                              ),
+                              floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+                              floatingActionButton: 
+                              FloatingActionButton(
+                                child: const Icon(Icons.home),
+                                backgroundColor: const Color(0xFF5AB198),
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => ETF()));
+                                },
                               ),
                               body: Stack(
                                 children: <Widget>[
@@ -788,26 +821,6 @@ Widget circleButton = Container(
   child: Row(
     crossAxisAlignment: CrossAxisAlignment.center,
     children: <Widget>[
-      /*FloatingActionButton(onPressed: ()
-      {Navigator.push(context, MaterialPageRoute<void>(
-                          builder: (BuildContext context) {
-                            return Scaffold(
-                              appBar: AppBar(
-                                title: const Text(
-                                    'Let' + "'s" + ' find your meal'),
-                              ),
-                              body: const Center(
-                                child: Text(
-                                  'nation food',
-                                  style: TextStyle(fontSize: 24),
-                                  ),
-                              ),
-                            );
-                          },
-                        ),               
-                      );
-      },
-      ),*/
       const CircleAvatar(
         radius: 60,
         backgroundColor: Colors.grey,
@@ -893,22 +906,3 @@ Widget otherCircles = Container(
 );
 
 class PageSecond extends Container {}
-
-//BottomBarrrrrrrrrrrr
-// class _mytabBarWidget extends State<ETF> {
-//   int _selectedIndex = 0;
-//   static const TextStyle optionStyle =
-//       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-//   static const List<Widget> _widgetOptions = <Widget>[
-//     Text(
-//       'Indexe 0: Home',
-//       style: optionStyle,
-//     ),
-//     Text('Indexe 1: none', style: optionStyle),
-//   ];
-//   void _onItemTapped(int index) {
-//     setState(() {
-//       _selectedIndex = index;
-//     });
-//   }
-// }
